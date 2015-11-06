@@ -22,6 +22,9 @@
 
 using namespace std;
 
+//----------------------------------------------------------
+//  Haupteinstiegspunkt des Programms
+//----------------------------------------------------------
 int main ( )
 {
    // Hilfsvariablen, fuer das arithemtische Mittel, minumum, maximum, anzahl

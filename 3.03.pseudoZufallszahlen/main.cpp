@@ -20,6 +20,9 @@
 
 using namespace std;
 
+//----------------------------------------------------------
+//  Haupteinstiegspunkt des Programms
+//----------------------------------------------------------
 int main ( )
 {
    int aFaktor = 16333;      // Vorgegebene Konstante
