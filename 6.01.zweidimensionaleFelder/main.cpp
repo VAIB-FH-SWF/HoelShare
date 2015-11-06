@@ -19,16 +19,27 @@
 
 using namespace std;
 
+/**
+ * Typ Definition
+ */
 typedef unsigned int uint;
-
+/**
+ * Arraygroesse festlegen
+ */
 const uint nmat = 10;
 
+/**
+ * Funktionsprototypen
+ */
 void matrix_diag    (int mat[nmat][nmat], uint n, uint diag,  int value);
 void matrix_dreieck (int mat[nmat][nmat], uint n, uint k,     int value);
 void matrix_frame   (int mat[nmat][nmat], uint n, uint frame, int value);
 void matrix_null    (int mat[nmat][nmat], uint n);
 void matrix_print   (int mat[nmat][nmat], uint n);
 
+//----------------------------------------------------------
+//  Haupteinstiegspunkt des Programms
+//----------------------------------------------------------
 int main()
 {
    int mat[nmat][nmat];
@@ -40,7 +51,7 @@ int main()
    cout << endl << "10x10-Matrix; Rahmenstaerke 2:" << endl;
    matrix_print(mat, nmat);
 
-   matrix_diag(mat, nmat, 7, 1);
+   matrix_diag(mat, nmat, 1, 1);
    cout << endl << "10x10-Matrix; 3 Diagonalen:" << endl;
    matrix_print(mat, nmat);
 
@@ -50,6 +61,9 @@ int main()
    return (0);
 }
 
+/**
+ * Gibt die Matrix auf der Console aus
+ */
 void matrix_print   (int mat[nmat][nmat], uint n)
 {
    for(uint zeile = 0; zeile < n; zeile++)
@@ -62,6 +76,9 @@ void matrix_print   (int mat[nmat][nmat], uint n)
    }
 }
 
+/**
+ * Setzt alle Werte der Matrix auf 0
+ */
 void matrix_null    (int mat[nmat][nmat], uint n)
 {
    for (uint zeile = 0; zeile < n; zeile++)
@@ -73,7 +90,11 @@ void matrix_null    (int mat[nmat][nmat], uint n)
    }
 }
 
-
+/**
+ * Setzt die Matrix auf 0 und setzt einen Rahmen
+ * @param frame Breite des Rahmens
+ * @param value Wert des Rahmens
+ */
 void matrix_frame   (int mat[nmat][nmat], uint n, uint frame, int value)
 {
    if(frame > n/2+1)
@@ -94,27 +115,46 @@ void matrix_frame   (int mat[nmat][nmat], uint n, uint frame, int value)
    }
 }
 
+/**
+ * Setzt die Matrix auf 0 und zeichnet eine Diagonale von links Oben nach Rechts unten
+ * Die Breite der Diagonale wird in ungeraden Schritten gewertet, da bei geraden Werten
+ * nicht entschieden werden kann, an welcher Seite von der Mitte aus das einzelne Feld
+ * gesetzt wird
+ * @param diag Breite der Diagonale
+ * @param value Wert der Diagonale
+ */
 void matrix_diag    (int mat[nmat][nmat], uint n, uint diag, int value)
 {
+   // Setzt zu hohe (unsinnige) Werte auf das Maximum von Anzahl Zeilen / 2 -1
    if(diag > n/2-1)
    {
       diag = n/2-1;
    }
-
+   // Matrix auf 0 setzen
    matrix_null(mat, n);
+   // Nur wenn der Wert groesser als 0 ist, wird die Diagonale gezeichnet
+   // Es muss geprueft werden, da bei graden Werten der Breite der naechst
+   // hoehere gewaehlt wird
    if (diag > 0)
    {
-      for (uint zeile = 0; zeile < nmat; zeile++)
+      for (uint zeile = 0; zeile < n; zeile++)
       {
-         for (uint spalte = max((int) 0, (int) (zeile - (diag / 2)));
-               spalte <= min(nmat - 1, zeile + (diag / 2)); spalte++)
+         for (uint diagZaehler = 0; diagZaehler < (diag + 2) / 2; diagZaehler++)
          {
-            mat[zeile][spalte] = value;
+            if (zeile + diagZaehler < n)
+            {
+               mat[zeile + diagZaehler][zeile] = value;
+               mat[zeile][zeile + diagZaehler] = value;
+            }
          }
       }
    }
 }
 
+/**
+ * Setzt die Werte der Matrix auf 0 und anschliessend in der oberen
+ * Linken Ecke ein Dreieck
+ */
 void matrix_dreieck (int mat[nmat][nmat], uint n, uint k, int value)
 {
    if(k > n/2-1)
