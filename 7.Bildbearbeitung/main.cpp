@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include "head\Picture.h"
 #include "exception\HoelShareException.h"
+#include "head/PictureFactory.h"
 
 using namespace std;
 
@@ -109,7 +110,7 @@ int main ( )
    {
       cout << "Bild wird geladen..." << endl;
       // Das Bild laden
-      Picture* p = Picture::loadPicture(string("dreifach.pgm"));
+      Picture* p = PictureFactory::create(string("dreifach.pgm"));
       // Menue anzeigen
       showMenu(p);
       // Zeiger auf das Bild loeschen

@@ -22,6 +22,7 @@
 #include "exception\IndexOutOfRangeException.h"
 #include "head\InputHandler.h"
 #include "head\EnumConverter.h"
+#include "head/PictureFactory.h"
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -36,7 +37,7 @@ using namespace std;
  */
 Picture* Picture::invertieren() const
 {
-   Picture* p = copyPicture(this);
+   Picture* p = PictureFactory::copyPicture(this);
 
    for(int row = 0; row < p->height; row++)
    {
@@ -54,7 +55,7 @@ Picture* Picture::invertieren() const
  */
 Picture* Picture::glaetten() const
 {
-   Picture* p = copyPicture(this);
+   Picture* p = PictureFactory::copyPicture(this);
    int sum, anz = 0;
    for (int row = 0; row < p->height; row++)
    {
@@ -92,7 +93,7 @@ Picture* Picture::glaetten() const
  */
 Picture* Picture::kantenErkennung() const
 {
-   Picture* p = copyPicture(this);
+   Picture* p = PictureFactory::copyPicture(this);
    int sum, anz, anzDirekterNachbar;
    for (int row = 0; row < p->height; row++)
    {
@@ -140,7 +141,7 @@ Picture* Picture::kantenErkennung() const
  */
 Picture* Picture::schaerfen() const
 {
-   Picture* p = copyPicture(this);
+   Picture* p = PictureFactory::copyPicture(this);
    int sum, anz;
    for (int row = 0; row < p->height; row++)
    {
@@ -189,65 +190,6 @@ Picture::~Picture()
       delete[] this->data[row];
    }
    delete[] this->data;
-}
-
-/**
- * Laedt das Bild im entsprechende Bild
- */
-Picture* Picture::loadPicture(string filename)
-{
-   Picture* picture;
-   ifstream dateiStream;
-   dateiStream.open(filename.c_str());
-
-   if (!dateiStream)
-   {
-      throw FileNotFoundException(filename.c_str());
-   }
-   InputHandler       inputHandle(&dateiStream);
-   // Wenn beim einlesen einer Zahl ein Fehler auftritt, dann wird eine
-   // InvalidPictureException geworfen
-   try
-   {
-      FILETYPE filetype = EnumConverter::getFiletype(inputHandle.readString());
-      switch(filetype)
-      {
-         case P2:
-            picture = new P2PGMPicture(&inputHandle);
-            break;
-         case UNKNOWN:
-         default:
-            dateiStream.close();
-            throw NotImplementedException(EnumConverter::toString(UNKNOWN));
-      }
-   }
-   catch (InputException &ex)
-   {
-      dateiStream.close();
-      throw InvalidPictureException();
-   }
-
-   dateiStream.close();
-   return (picture);
-}
-
-/**
- * Ruft den entsprechenden Konstruktor auf und gibt eine Kopie des Objekts zurueck
- */
-Picture* Picture::copyPicture(const Picture* orig)
-{
-   Picture* picture;
-   switch(orig->filetype)
-   {
-      case P2:
-         picture = new P2PGMPicture(orig);
-         break;
-      case UNKNOWN:
-      default:
-         throw NotImplementedException(EnumConverter::toString(UNKNOWN));
-         break;
-   }
-   return (picture);
 }
 
 /**
