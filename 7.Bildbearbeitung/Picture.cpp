@@ -223,6 +223,7 @@ Picture* Picture::loadPicture(string filename)
    }
    catch (InputException &ex)
    {
+      dateiStream.close();
       throw InvalidPictureException();
    }
 
