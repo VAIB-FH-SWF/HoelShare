@@ -57,7 +57,7 @@ int main()
 
    matrix_dreieck(mat, nmat, 5, 1);
    cout << endl << "10x10-Matrix; 5 Diagonalreihen links oben:" << endl;
-//   matrix_print(mat, nmat);
+   matrix_print(mat, nmat);
    return (0);
 }
 
