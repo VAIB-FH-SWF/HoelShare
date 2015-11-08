@@ -11,6 +11,7 @@
 //
 //	    Author:	Sebastian Hoelscher, sebastian@hoelshare.de
 //	Matrikelnr:	10050674
+// Contributer: Piggeldi
 //
 //==========================================================
 #include <iostream>
@@ -143,6 +144,7 @@ void matrix_diag    (int mat[nmat][nmat], uint n, uint diag, int value)
          {
             if (zeile + diagZaehler < n)
             {
+               // Idea by Piggeldi
                mat[zeile + diagZaehler][zeile] = value;
                mat[zeile][zeile + diagZaehler] = value;
             }
