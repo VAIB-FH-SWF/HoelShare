@@ -73,3 +73,6 @@ Desktop.ini
 ######################
 
 */.settings/*
+/8.1.Bildfuellen/build/
+/8.1.Aufgabe/build/
+/8.1.Aufgabe/dist/
