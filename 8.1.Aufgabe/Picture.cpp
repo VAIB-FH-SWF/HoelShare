@@ -247,3 +247,37 @@ Pixel Picture::getData (int row, int col) const
    }
    return (this->data[row][col]);
 }
+
+void regFill (Picture* picture, int inz, int ins, Pixel oldVal, Pixel newVal) {
+    
+    //ist der index noch innerhalb des Bild bereiches
+    if (inz < picture->getHeight() && ins < picture->getWidth() && inz >= 0 && ins >= 0){
+        
+        if (picture->getData(inz,ins) == oldVal)
+        {
+            picture->setData(inz, ins, newVal);
+            
+            regFill(picture, inz + 1, ins, oldVal, newVal);
+            regFill(picture, inz - 1, ins, oldVal, newVal);
+            regFill(picture, inz, ins + 1, oldVal, newVal);
+            regFill(picture, inz, ins - 1, oldVal, newVal);
+        }
+    }
+}
+
+Picture* Picture::fill(int inz, int ins, Pixel newVal) const {
+
+    Picture* picture = PictureFactory::copyPicture(this);
+    
+    Pixel oldVal = picture->getData(inz,ins);
+    
+    regFill(picture, inz, ins, oldVal, newVal);
+    
+    return picture;
+}
+
+void Picture::setData(int x, int y, Pixel pixel) {
+    
+    this->data[x][y] = pixel;
+}
+

@@ -32,12 +32,14 @@ class Picture
       Picture*      glaetten        () const ;
       Picture*      kantenErkennung () const;
       Picture*      schaerfen       () const;
+      Picture*      fill            (int inz, int ins, Pixel newVal) const;
       int           getWidth        () const;
       int           getHeight       () const;
       int           getGreydepth    () const;
       std::string   getFilename     () const;
       FILETYPE      getFiletype     () const;
       Pixel         getData         (int x, int y) const;
+      void          setData         (int x, int y, Pixel pixel);
    protected:
 //      Picture           (const Picture*);
       virtual void      loadData() = 0;

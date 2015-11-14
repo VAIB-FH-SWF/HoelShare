@@ -31,6 +31,7 @@ string getMenuText()
             << "i\tInvertieren" << endl
             << "k\tKantenbildung" << endl
             << "s\tSchaerfen" << endl
+           <<  "f\tFuellen" << endl
             << "e\tENDE" << endl;
    return (menuText.str());
 }
@@ -94,6 +95,14 @@ void showMenu (Picture* p)
             // NOTHING TO-DO here
             // Ansonsten wird Falsche eingabe ausgegeben
          break;
+         case 'f':
+         case 'F':
+            cout << endl << "Bild gefuellt abgespeichert" << endl;
+            bearbeitet = p->fill(10,10,127);
+            bearbeitet->savePicture("Fill.pgm");
+            delete bearbeitet;
+            
+         break;
          default:
             cout << endl << "Falsche eingabe!" << endl;
          break;
@@ -108,8 +117,7 @@ int main ( )
 {
    try
    {
-      char buffer[512];
-
+    char buffer[512];
     getcwd(buffer, 512);
     printf("Das aktuelle Verzeichnis ist : %s\n", buffer);
 
@@ -117,7 +125,7 @@ int main ( )
       
       
       // Das Bild laden
-      Picture* p = PictureFactory::create(string("dreifach.pgm"));
+      Picture* p = PictureFactory::create(string("kunst.pgm"));
       // Menue anzeigen
       showMenu(p);
       // Zeiger auf das Bild loeschen
