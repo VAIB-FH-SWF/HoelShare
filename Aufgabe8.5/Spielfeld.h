@@ -20,7 +20,6 @@ public:
     
 private:
     Feld spielfelder[9][9];
-    uint getAnzahlOffen();
     void getFirstNotFilled(int* zeile, int* spalte);
     bool checkFeldValue (int zeile, int spalte, Feld wert);
     
