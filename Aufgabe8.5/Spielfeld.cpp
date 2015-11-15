@@ -1,6 +1,6 @@
-/* 
+/** 
  * File:   Spielfeld.cpp
- * Author: fredde
+ * Author: fredde & HoelShare
  * 
  * Created on 15. November 2015, 00:40
  */
@@ -8,32 +8,49 @@
 #include "Spielfeld.h"
 #include <iostream>
 #include <iomanip>
-#include <cstdlib>
 using namespace std;
 
-Spielfeld::Spielfeld() {
-    for (int zeile = 0; zeile < 9; zeile++) {
-        for (int spalte = 0; spalte < 9; spalte++) {
+/**
+ * Initialisiert ein leeres Spielfeld
+ */
+Spielfeld::Spielfeld()
+{
+    for (int zeile = 0; zeile < 9; zeile++)
+    {
+        for (int spalte = 0; spalte < 9; spalte++)
+        {
             this->spielfelder[zeile][spalte] = 0;
         }
     }
 }
 
-void Spielfeld::setFeld(int spalte, int zeile, Feld wert) {
+/**
+ * Setzt den Wert an der Stelle im Spielfeld
+ * @param spalte
+ * @param zeile
+ * @param wert
+ */
+void Spielfeld::setFeld(int spalte, int zeile, Feld wert)
+{
 
     this->spielfelder[zeile][spalte] = wert;
 }
 
-void Spielfeld::draw() {
-    system("clear");
-    
+/**
+ * Gibt das Spielfeld aus
+ */
+void Spielfeld::draw()
+{
     cout << "#\t#\t#\t#\t#\t#\t#\t#\t#\t#\t#" << endl;
 
-    for (int zeile = 0; zeile < 9; zeile++) {
+    for (int zeile = 0; zeile < 9; zeile++)
+    {
         cout << "#\t";
-        for (int spalte = 0; spalte < 9; spalte++) {
+        for (int spalte = 0; spalte < 9; spalte++)
+        {
 
-            if (!this->spielfelder[zeile][spalte]) {
+            if (!this->spielfelder[zeile][spalte])
+            {
                 cout << "\t";
                 continue;
             }
@@ -46,73 +63,81 @@ void Spielfeld::draw() {
     cout << "#\t#\t#\t#\t#\t#\t#\t#\t#\t#\t#" << endl;
 }
 
-Spielfeld* Spielfeld::solve() {
+/**
+ * Loesst das Sudoku Raetsel
+ * @return das geloesste Sudoku
+ */
+Spielfeld* Spielfeld::solve()
+{
     draw();
-    // Wenn die Anzahl der leeren Felder 0 ist, dann ist das Raetsel geloest
-    if(getAnzahlOffen() == 0)
+
+    int zeile = -1, spalte = -1;
+    // Suche das erste nicht gefuellte Feld
+    getFirstNotFilled(&zeile, &spalte);
+    // Sind alle Felder gefuellt
+    if (-1 == spalte || -1 == zeile)
     {
         return this;
     }
-    for (int zeile = 0; zeile < 9; zeile++) {
-        for (int spalte = 0; spalte < 9; spalte++) {
-            if (!this->spielfelder[zeile][spalte]) {
-                bool loesbar = false;
 
-                for (int possibeValue = 1; possibeValue <= 9; possibeValue++) {
-                    
-                    if (this->checkFeldValue(zeile, spalte, possibeValue)) {
-                        this->spielfelder[zeile][spalte] = possibeValue;
-                    }
-                    
-                /*    //cout << zaehler++ << " " <<  zeile << "\t" << spalte << possibeValue << endl;
-                    
-                    if (this->checkFeldValue(zeile, spalte, possibeValue)) {
-                        loesbar = true;
-                        Spielfeld*  spneu = new Spielfeld(*this);
-                        spneu->setFeld(spalte, zeile, possibeValue);
-                        if(spneu->solve() == nullptr)
-                        {
-                            return this;
-                        }
-                        if(spneu->getAnzahlOffen() == 0)
-                        {
-                            return spneu;
-                        }
-                        //this->spielfelder[zeile][spalte] = possibeValue;
-                    }
-                }
-*/
-               // if (!loesbar) {
-               //     
-               //     return nullptr;
-               // }
-                }
+    // moeglichen Felder testen
+    for (int possibeValue = 1; possibeValue <= 9; possibeValue++)
+    {
+        // Ist die Zahl in dem Feld moeglich?
+        if (this->checkFeldValue(zeile, spalte, possibeValue))
+        {
+            // Neues Sudoku Feld anlegen und das Feld setzen
+            // Bei diesem dann Solve aufrufen
+            Spielfeld* spneu = new Spielfeld(*this);
+            spneu->setFeld(spalte, zeile, possibeValue);
+            Spielfeld* loesung = spneu->solve();
+            delete spneu;
+            // Wenn die Loesung gesetzt ist, sind alle Felder gesetzt
+            if (loesung != nullptr)
+            {
+                return loesung;
             }
+            //this->spielfelder[zeile][spalte] = possibeValue;
         }
     }
-    
-    return this;
+    // Keine loesung gefunden
+    return nullptr;
 }
 
-bool Spielfeld::checkFeldValue(int zeile, int spalte, Feld wert) {
-
+/**
+ * Prueft ob der Wert an der Stelle im Feld gesetzt werden kann
+ * @param zeile
+ * @param spalte
+ * @param wert
+ * @return 
+ */
+bool Spielfeld::checkFeldValue(int zeile, int spalte, Feld wert)
+{
     //spalte pruefen
-    for (int spalteIterator = 0; spalteIterator < 9; spalteIterator++) {
-
-        if (this->spielfelder[zeile][spalteIterator] == wert) {
+    for (int spalteIterator = 0; spalteIterator < 9; spalteIterator++)
+    {
+        if (this->spielfelder[zeile][spalteIterator] == wert)
+        {
             return false;
         }
     }
     // zeile pruefen
-    for (int zeileIterator = 0; zeileIterator < 9; zeileIterator++) {
+    for (int zeileIterator = 0; zeileIterator < 9; zeileIterator++)
+    {
 
-        if (this->spielfelder[zeileIterator][spalte] == wert) {
+        if (this->spielfelder[zeileIterator][spalte] == wert)
+        {
             return false;
         }
     }
-    for (int zeileIterator = zeile / 3 * 3; zeileIterator / 3 * 3 < zeile / 3 * 3 + 3; zeileIterator++) {
-        for (int spaltenIterator = spalte / 3 * 3; spaltenIterator / 3 * 3 < spalte / 3 * 3 + 3; spaltenIterator++) {
-            if (this->spielfelder[zeileIterator][spaltenIterator] == wert) {
+    // 3x3 Blocks pruefen
+    // /3*3 bewusst als ganzzahl, damit entweder bei 0, 3, 6 angefangen wird und 3 Felder getestet werden
+    for (int zeileIterator = zeile / 3 * 3; zeileIterator / 3 * 3 < zeile / 3 * 3 + 3; zeileIterator++)
+    {
+        for (int spaltenIterator = spalte / 3 * 3; spaltenIterator / 3 * 3 < spalte / 3 * 3 + 3; spaltenIterator++)
+        {
+            if (this->spielfelder[zeileIterator][spaltenIterator] == wert)
+            {
                 return false;
             }
         }
@@ -120,14 +145,23 @@ bool Spielfeld::checkFeldValue(int zeile, int spalte, Feld wert) {
     return true;
 }
 
-uint Spielfeld::getAnzahlOffen() {
-    uint anzahl = 0;
-    for (int zeile = 0; zeile < 9; zeile++) {
-        for (int spalte = 0; spalte < 9; spalte++) {
-            if (!this->spielfelder[zeile][spalte]) {
-                anzahl++;
+/**
+ * Setzt den Wert von zeile und spalte auf das erste nicht gefuellte Feld
+ * @param zeile
+ * @param spalte
+ */
+void Spielfeld::getFirstNotFilled(int* zeile, int* spalte)
+{
+    for (int z = 0; z < 9; z++)
+    {
+        for (int s = 0; s < 9; s++)
+        {
+            if (!this->spielfelder[z][s])
+            {
+                *zeile = z;
+                *spalte = s;
+                return;
             }
         }
     }
-    return anzahl;
 }

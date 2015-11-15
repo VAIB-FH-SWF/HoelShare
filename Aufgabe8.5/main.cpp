@@ -60,14 +60,15 @@ int main(int argc, char** argv) {
     spielfeld.setFeld(5, 7, 3);
     
     spielfeld.setFeld(0, 8, 8);
-    spielfeld.setFeld(3, 8, 5);
+    spielfeld.setFeld(2, 8, 5);
     spielfeld.setFeld(6, 8, 9);
     spielfeld.setFeld(8, 8, 6);
     spielfeld.draw();
     //
+    spielfeld.draw();
     Spielfeld sp;
-    Spielfeld* geloest = sp.solve();
-    geloest->draw();
+    Spielfeld *spfertig = spielfeld.solve();
+    spfertig->draw();
 
     return 0;
 }
