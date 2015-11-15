@@ -16,7 +16,10 @@ public:
     
     
 private:
-
+    Feld spielfelder[9][9];
+    
+    void draw ();
+    
 };
 
 #endif	/* SPIELFELD_H */

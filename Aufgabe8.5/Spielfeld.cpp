@@ -6,13 +6,32 @@
  */
 
 #include "Spielfeld.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
 
 Spielfeld::Spielfeld() {
 }
 
-Spielfeld::Spielfeld(const Spielfeld& orig) {
+void solve (int zeile, int spalte){
+    
 }
 
-Spielfeld::~Spielfeld() {
+void Spielfeld::draw() {
+    
+    cout << "#\t#\t#\t#\t#\t#\t#\t#\t#\t#\t#" << endl;
+    
+    for (int zeile = 0; zeile < 9; zeile ++) {
+        cout << "#\t";
+        for (int spalte = 0; spalte < 9; spalte ++){
+            
+            cout << this->spielfelder[zeile][spalte] << "\t";
+        }
+        cout << "#" << endl;
+    }
+    
+    cout << "#\t#\t#\t#\t#\t#\t#\t#\t#\t#\t#" << endl;
 }
+
 
