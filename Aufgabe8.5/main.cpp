@@ -63,6 +63,11 @@ int main(int argc, char** argv) {
     spielfeld.setFeld(3, 8, 5);
     spielfeld.setFeld(6, 8, 9);
     spielfeld.setFeld(8, 8, 6);
+    spielfeld.draw();
+    //
+    Spielfeld sp;
+    Spielfeld* geloest = sp.solve();
+    geloest->draw();
 
     return 0;
 }

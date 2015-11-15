@@ -9,16 +9,19 @@
 #define	SPIELFELD_H
 
 typedef unsigned char Feld;
+typedef unsigned int uint;
 
 class Spielfeld {
 public:
     Spielfeld();
-    
+    void draw ();
+    void setFeld(int x, int y, Feld wert);
+    Spielfeld* solve ();
     
 private:
     Feld spielfelder[9][9];
-    
-    void draw ();
+    uint getAnzahlOffen();
+    bool checkFeldValue (int zeile, int spalte, Feld wert);
     
 };
 
