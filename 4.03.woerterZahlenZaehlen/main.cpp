@@ -65,26 +65,30 @@ int main ( )
       }
       else if (isdigit(text[i]))
       {
-         // Wenn der Zustand nicht
-         summeZahlen += (aktZustand != ZAHL ? 1 : 0);
+          // Wenn das letzte Zeichen ein Buchstabe war, wird ein Fehler ausgegeben und das Programm beendet
          if (aktZustand == WORT)
          {
             // Zahlen und Wort kombination!
             cout << "Fehler die Eingabe beinhaltet eine Wort Zahl kombination!";
             exit(1);
          }
+         // Wenn der Zustand nicht
+         summeZahlen += (aktZustand != ZAHL ? 1 : 0);
          aktZustand = ZAHL;
       }
+      // Wenn das Zeichen weder Zahl noch Leerzeichen ist, wird es als *Buchstabe* gezaehlt
+      // Der Linux Befehl wc zählt diese ebenfalls
       else if (!iscntrl(text[i]))
       {
-         // Wenn der Zustand nicht
-         summeWoerter += (aktZustand != WORT ? 1 : 0);
+          // Wenn das letzte Zeichen ein Buchstabe war, wird ein Fehler ausgegeben und das Programm beendet
          if (aktZustand == ZAHL)
          {
             // Zahlen und Wort kombination!
             cout << "Fehler die Eingabe beinhaltet eine Zahl Wort kombination!";
             exit(1);
          }
+         // Wenn der Zustand nicht
+         summeWoerter += (aktZustand != WORT ? 1 : 0);
          aktZustand = WORT;
       }
    }
