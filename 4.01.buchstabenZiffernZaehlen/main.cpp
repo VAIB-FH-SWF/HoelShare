@@ -19,6 +19,10 @@
 
 using namespace std;
 
+/**
+ * 
+ * @return Fehlerhafter Programablauf?
+ */
 int main ( )
 {
    int maxstring = 256;                      // Puffergroesse

@@ -41,7 +41,7 @@ int main ( )
    cout << "Der eingegebene Text lautet: '" << text << "'\n";
 
    summeWoerter = 0;
-   // Wörter und andere Zeichen werden als WORT
+   // Woerter und andere Zeichen werden als WORT
    // nur SPACE, Tabs usw. werden als LEER gezaehlt
    for (i = 0; text[i] != '\0'; i += 1)
    {
