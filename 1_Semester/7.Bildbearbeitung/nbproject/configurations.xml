@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="exception" displayName="exception" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>head/EnumConverter.h</itemPath>
+      <itemPath>head/FILETYPE.h</itemPath>
+      <itemPath>exception/FileNotFoundException.h</itemPath>
+      <itemPath>exception/HoelShareException.h</itemPath>
+      <itemPath>exception/IndexOutOfRangeException.h</itemPath>
+      <itemPath>exception/InputException.h</itemPath>
+      <itemPath>head/InputHandler.h</itemPath>
+      <itemPath>exception/InvalidPictureException.h</itemPath>
+      <itemPath>exception/NotImplementedException.h</itemPath>
+      <itemPath>head/P2PGMPicture.h</itemPath>
+      <itemPath>head/PGMPicture.h</itemPath>
+      <itemPath>head/Picture.h</itemPath>
+      <itemPath>head/PictureFactory.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>EnumConverter.cpp</itemPath>
+      <itemPath>exception/FileNotFoundException.cpp</itemPath>
+      <itemPath>exception/HoelShareException.cpp</itemPath>
+      <itemPath>exception/IndexOutOfRangeException.cpp</itemPath>
+      <itemPath>exception/InputException.cpp</itemPath>
+      <itemPath>InputHandler.cpp</itemPath>
+      <itemPath>exception/InvalidPictureException.cpp</itemPath>
+      <itemPath>Makefile</itemPath>
+      <itemPath>exception/NotImplementedException.cpp</itemPath>
+      <itemPath>P2PGMPicture.cpp</itemPath>
+      <itemPath>Picture.cpp</itemPath>
+      <itemPath>PictureFactory.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>dreifach.pgm</itemPath>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>11</standard>
+        </ccTool>
+      </compileType>
+      <item path="EnumConverter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InputHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="P2PGMPicture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Picture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PictureFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="dreifach.pgm" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/FileNotFoundException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/FileNotFoundException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/HoelShareException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="exception/HoelShareException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/IndexOutOfRangeException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/IndexOutOfRangeException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="exception/InputException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="exception/InputException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/InvalidPictureException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/InvalidPictureException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="exception/NotImplementedException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/NotImplementedException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="head/EnumConverter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/FILETYPE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/InputHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/P2PGMPicture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/PGMPicture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/Picture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/PictureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <standard>11</standard>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="EnumConverter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InputHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="P2PGMPicture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Picture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PictureFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="dreifach.pgm" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/FileNotFoundException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/FileNotFoundException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/HoelShareException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="exception/HoelShareException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/IndexOutOfRangeException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/IndexOutOfRangeException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="exception/InputException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="exception/InputException.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="exception/InvalidPictureException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/InvalidPictureException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="exception/NotImplementedException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="exception/NotImplementedException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="head/EnumConverter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/FILETYPE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/InputHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/P2PGMPicture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/PGMPicture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/Picture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="head/PictureFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
