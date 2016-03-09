@@ -14,13 +14,18 @@ typedef unsigned char Pixel;
 /**
  * Struktur in der ein Bild gespeichert wird
  */
-struct pgm_bild 
+struct pgm_bild
 {
-    char  magic[2]; // Bildtyp
-    int   nx;       // Zeilenzahl
-    int   ny;       // Spaltenzahl
-    int   graumax;  // max. Grauwert
-    Pixel **bild;   // Bildmatrix
+		/** Bildtyp */
+		char magic[2];
+		/** Zeilenzahl */
+		int nx;
+		/** Spaltenzahl */
+		int ny;
+		/** max. Grauwert */
+		int graumax;
+		/** Bildmatrix */
+		Pixel **bild;
 };
 
 #endif /* PGM_BILD_H */

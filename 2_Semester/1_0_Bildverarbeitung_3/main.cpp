@@ -93,7 +93,7 @@ void bild_lesen(pgm_bild *bild, string ifs_file_name)
 	{
 		exit(2);
 	}
-
+	// sehr unschoen!!!!
 	// Die Werte in magic setzen
 	bild->magic[0] = 'P';
 	bild->magic[1] = '2';
