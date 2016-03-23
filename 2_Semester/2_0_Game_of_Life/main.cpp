@@ -28,12 +28,16 @@ void delete_int_matrix(int **m);
 uint holeAnzahlLebendeNachbarn(int ** feld, uint zeile, uint spalte);
 void tauscheFelder(int*** feld1, int*** feld2);
 
+/**
+ * Haupteinstiegspunkt
+ * @return Fehler im Programm?
+ */
 int main()
 {
 	int** ausgabeFeld;
 	int** zwischenSpeicherFeld;
 	uint hoehe = 10;
-	uint breite = 10;
+	uint breite = 20;
 	uint generation = 0;
 	uint population = 0;
 	// Hoehe einlesen
@@ -41,10 +45,12 @@ int main()
 	cin >> hoehe;
 	cout << "Bitte die Breite eingeben: ";
 	cin >> breite;
-
+	cout << endl;
 	ausgabeFeld = new_int_matrix(hoehe, breite);
 	zwischenSpeicherFeld = new_int_matrix(hoehe, breite);
 	zufallsbelegung(ausgabeFeld, hoehe, breite);
+	print_feld(ausgabeFeld, hoehe, breite);
+
 	do
 	{
 		population = next_generation(ausgabeFeld, zwischenSpeicherFeld, hoehe, breite);
@@ -247,7 +253,7 @@ void delete_int_matrix(int** m)
 }
 
 /**
- * Tauscht die Pointer auf die zwei Felder
+ * Tauscht die zwei Felder
  * @param feld1 Erste Matrix
  * @param feld2 Zweite Matrix
  */
