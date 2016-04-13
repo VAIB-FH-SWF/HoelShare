@@ -96,6 +96,7 @@ int main()
 		cursor = cursor->next;
 		delete ma;
 	}
+	delete cursor;
 
 	return 0;
 }
