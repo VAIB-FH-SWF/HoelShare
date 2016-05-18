@@ -1,3 +1,11 @@
+/*****************************************************************/
+/*    Dateiname: main.cpp										 */
+/* Beschreibung: Aufgabe 4.1 Definition der Struktur			 */
+/*  															 */
+/*      Version: 1.0											 */
+/*     Erstellt: 21.03.2016										 */
+/*        Autor: Sebastian Hoelscher							 */
+/*****************************************************************/
 #include <string>
 
 using namespace std;

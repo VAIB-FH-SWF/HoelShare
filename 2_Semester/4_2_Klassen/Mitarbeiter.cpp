@@ -1,3 +1,11 @@
+/*****************************************************************/
+/*    Dateiname: main.cpp										 */
+/* Beschreibung: Aufgabe 4.2 Implementierung der Klasse			 */
+/*  															 */
+/*      Version: 1.0											 */
+/*     Erstellt: 21.03.2016										 */
+/*        Autor: Sebastian Hoelscher							 */
+/*****************************************************************/
 #include <iostream>
 #include <iomanip>
 #include "Mitarbeiter.h"
