@@ -36,6 +36,8 @@ int main()
 	Vek3 p2(8);
 	Vek3 v2(-1, 3);
 	Vek3 v3(0, 0, 1);
+
+	// Funktion umstellen
 	v2 = -v2;
 	Vek3 r = p2 - p1;
 	// Dauer berechnen

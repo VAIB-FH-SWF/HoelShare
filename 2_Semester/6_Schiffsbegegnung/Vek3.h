@@ -16,7 +16,7 @@ using namespace std;
 class Vek3
 {
 	public:
-		// ===wd=================  LIFECYCLE     =======================================
+		// ====================  LIFECYCLE     =======================================
 		Vek3(double _x = 0.0, double _y = 0.0, double _z = 0.0);
 		// ==================== ACCESSORS =======================================
 		// Komponentenzugriff

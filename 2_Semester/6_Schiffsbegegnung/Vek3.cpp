@@ -158,10 +158,7 @@ Vek3& Vek3::operator *=(double s)
  */
 Vek3& Vek3::operator /=(double s)
 {
-	this->x /= s;
-	this->y /= s;
-	this->z /= s;
-	return *this;
+	return *this *= (1/s);
 }
 
 /**
@@ -210,12 +207,9 @@ ostream& operator <<(ostream& os, const Vek3& obj)
 Vek3 operator +(const Vek3 &v1, const Vek3 &v2)
 {
 	// Addition
-	Vek3 ret;
-	ret.x = v1.x + v2.x;
-	ret.y = v1.y + v2.y;
-	ret.z = v1.z + v2.z;
+	Vek3 ret(v1);
 
-	return ret;
+	return ret += v2;
 }
 
 /**
