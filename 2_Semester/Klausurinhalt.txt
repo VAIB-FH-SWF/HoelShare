@@ -1,0 +1,30 @@
+Klassen (Kern)
+	+ 2.3 & 2.4 
+	- ohne Implizite / explizite Konstruktoren
+
+	+ Automatisch erzeugte Kompontenfuntkionen
+		+ Aufgabe mit new (Dann muss der Zuweisungsopterator und Kopierkonstruktor neu erstellt werden)
+	
+	+ 2.7 & 2.8 wichtig
+
+- 3.5 Funktionsobjekte wird nicht benötigt
+
+Vererbung sehr wichtig
++ Vorallem virtual 4.3
+- 4.4 wird nicht benötigt
++4.5 kommt auch dran
+
+
+Fehlerbehandlung
+-5.1 wird nur rudimentär benötigt
+-5.2 wird nicht benötigt (assert)
++5.3 Prüfungsrelevant
++ catch(...) fängt alles ab!
+
+Container Klassen 
++ Grob anschauen
+
+Iterator (nächstes Mal nochmal fragen)
+
+
+-Kapitel 7 & 8 nicht Prüfungsrelevant

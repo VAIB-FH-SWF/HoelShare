@@ -28,13 +28,13 @@ int main()
 		cerr << "Fehler Datei(" << dateiname << ") konnte nicht geoeffnet werden";
 		exit(1);
 	}
-
+	int anzahl = 1000000;
 	int tag, monat, jahr;
-	Datum* daten[1000000];
+	Datum* daten[anzahl];
 	int zaehler = 0;
 	int anzFehler = 0;
 	// Datensaetze laden
-	while (dateiStream >> tag >> monat >> jahr)
+	while (zaehler < anzahl && dateiStream >> tag >> monat >> jahr)
 	{
 		try
 		{
