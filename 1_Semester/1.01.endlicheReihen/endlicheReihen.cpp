@@ -84,7 +84,7 @@ main ()
    //--------------------------------------------------------
    summe = 0.0;
    summand = 1.0;
-   for(i = 0; i <= n; i++)
+   for(i = 0; i < n; i++)
    {
       summe = summe + summand;
       summand = 0.5 * summand;
